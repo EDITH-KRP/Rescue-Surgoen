@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RescueSurgeon | Rescuing Lives. Restoring Hope.</title>
+    <meta name="description" content="RescueSurgeon, led by Narayana Murthy, is dedicated to rescuing, rehabilitating, and caring for orphaned, injured, and vulnerable animals.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-paw"></i> RescueSurgeon
+            </a>
+            
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#work">Our Work</a>
+                <a href="#animals">Animals</a>
+                <a href="#impact">Impact</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="#consultation" class="btn btn-outline">Book a Consultation</a>
+                <a href="#donate" class="btn btn-primary">Donate</a>
+            </div>
+
+            <button class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">RESCUESURGEON</span>
+            <h1 class="hero-title">Rescuing Lives.<br>Restoring Hope.</h1>
+            <p class="hero-desc">We rescue, rehabilitate and care for orphaned, injured and vulnerable animals.</p>
+            <div class="hero-cta">
+                <a href="#work" class="btn btn-primary btn-large">Our Work</a>
+                <a href="#consultation" class="btn btn-glass btn-large">Book a Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Counters Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-box">
+                <h3 class="counter" data-target="500">0</h3><span>+</span>
+                <p>Animals Rescued</p>
+            </div>
+            <div class="stat-box">
+                <h3 class="counter" data-target="300">0</h3><span>+</span>
+                <p>Animals Treated</p>
+            </div>
+            <div class="stat-box">
+                <h3 class="counter" data-target="150">0</h3><span>+</span>
+                <p>Successful Rehabilitations</p>
+            </div>
+            <div class="stat-box">
+                <h3 class="counter" data-target="50">0</h3><span>+</span>
+                <p>Rescue Operations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="about" class="founder-section">
+        <div class="founder-container">
+            <div class="founder-image">
+                <!-- Placeholder for Narayana Murthy's photo -->
+                <div class="image-placeholder"><i class="fa-solid fa-user-tie"></i></div>
+            </div>
+            <div class="founder-content">
+                <h2>Meet Narayana Murthy</h2>
+                <h4>Founder, RescueSurgeon</h4>
+                <p>Driven by compassion and a commitment to animal welfare, Narayana Murthy founded RescueSurgeon to provide care, protection and a second chance to animals in need.</p>
+                <a href="#founder-story" class="btn btn-outline">Read His Story <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Work Section Preview -->
+    <section id="work" class="work-section">
+        <div class="section-header">
+            <h2>Our Journey of Care</h2>
+            <p>From rescue to release, we are with them every step of the way.</p>
+        </div>
+        <div class="work-categories">
+            <div class="work-card">
+                <div class="work-icon"><i class="fa-solid fa-truck-medical"></i></div>
+                <h3>Emergency Rescue</h3>
+                <p>Rapid response to animals in distress.</p>
+            </div>
+            <div class="work-card">
+                <div class="work-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                <h3>Treatment</h3>
+                <p>Expert medical care and surgery.</p>
+            </div>
+            <div class="work-card">
+                <div class="work-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                <h3>Rehabilitation</h3>
+                <p>Physical therapy and emotional healing.</p>
+            </div>
+            <div class="work-card">
+                <div class="work-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                <h3>Adoption</h3>
+                <p>Finding loving forever homes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animals Section -->
+    <section id="animals" class="animals-section">
+        <div class="section-header">
+            <h2>Animals Under Our Care</h2>
+            <p>Meet the resilient souls currently on their journey to recovery.</p>
+            <div class="animal-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="dogs">Dogs</button>
+                <button class="filter-btn" data-filter="cats">Cats</button>
+                <button class="filter-btn" data-filter="wildlife">Wildlife</button>
+            </div>
+        </div>
+        
+        <div class="animals-grid" id="animals-container">
+            <!-- Animals will be loaded dynamically here via API -->
+            <div class="animal-card" data-category="dogs">
+                <div class="animal-img placeholder-img"><i class="fa-solid fa-dog"></i></div>
+                <div class="animal-info">
+                    <h3>Bruno</h3>
+                    <span class="status recovering">Recovering</span>
+                    <p>Rescued from an accident, Bruno is showing incredible spirit.</p>
+                    <a href="#" class="btn btn-outline btn-small">View Story</a>
+                </div>
+            </div>
+            
+            <div class="animal-card" data-category="cats">
+                <div class="animal-img placeholder-img"><i class="fa-solid fa-cat"></i></div>
+                <div class="animal-info">
+                    <h3>Luna</h3>
+                    <span class="status rescued">Recently Rescued</span>
+                    <p>Found abandoned, Luna is receiving urgent neonatal care.</p>
+                    <a href="#" class="btn btn-outline btn-small">View Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+         <div class="section-header">
+            <h2>Our Impact in Action</h2>
+            <p>Visual stories of rescue, treatment, and hope.</p>
+        </div>
+        <div class="masonry-gallery">
+            <div class="gallery-item large placeholder-img">Rescue Operation</div>
+            <div class="gallery-item placeholder-img">Medical Treatment</div>
+            <div class="gallery-item placeholder-img">Recovery</div>
+            <div class="gallery-item placeholder-img">Adoption Day</div>
+            <div class="gallery-item wide placeholder-img">Volunteer Team</div>
+        </div>
+    </section>
+
+    <!-- Consultation Booking -->
+    <section id="consultation" class="booking-section">
+        <div class="booking-container">
+            <div class="booking-info">
+                <h2>Book a Consultation</h2>
+                <p>Whether you need advice on animal welfare, want to volunteer, or are looking to adopt, our experts are here to help.</p>
+                <ul class="booking-benefits">
+                    <li><i class="fa-solid fa-check"></i> Expert Veterinary Advice</li>
+                    <li><i class="fa-solid fa-check"></i> Rescue Guidance</li>
+                    <li><i class="fa-solid fa-check"></i> Adoption Counseling</li>
+                </ul>
+            </div>
+            <div class="booking-form-wrapper">
+                <form id="booking-form" class="styled-form">
+                    <div class="form-group">
+                        <label>Consultation Type</label>
+                        <select required>
+                            <option value="">Select an option...</option>
+                            <option value="rescue">Animal Rescue Consultation</option>
+                            <option value="adoption">Adoption Consultation</option>
+                            <option value="volunteer">Volunteer Consultation</option>
+                            <option value="general">General Consultation</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" required placeholder="+91 00000 00000">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Date</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Time Slot</label>
+                            <select required>
+                                <option value="">Select time...</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:30">11:30 AM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="16:30">4:30 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Requirement Details</label>
+                        <textarea rows="4" required placeholder="Tell us how we can help..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Book Consultation</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo text-white">
+                    <i class="fa-solid fa-paw"></i> RescueSurgeon
+                </a>
+                <p>Rescuing Lives. Restoring Hope. A premier animal rescue and welfare organization founded by Narayana Murthy.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <a href="#about">About Us</a>
+                <a href="#work">Our Work</a>
+                <a href="#animals">Animals</a>
+                <a href="#impact">Impact</a>
+            </div>
+            <div class="footer-contact">
+                <h3>Emergency Contact</h3>
+                <p><i class="fa-solid fa-phone"></i> +91 800 000 0000</p>
+                <p><i class="fa-solid fa-envelope"></i> help@rescuesurgeon.org</p>
+                <p><i class="fa-solid fa-location-dot"></i> Bangalore, India</p>
+                <a href="#donate" class="btn btn-primary mt-3">Donate Now</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 RescueSurgeon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
