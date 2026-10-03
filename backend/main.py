@@ -1,10 +1,39 @@
 import os
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from supabase import create_client, Client
+from sqlalchemy import create_engine, Column, Integer, String, Text
+from sqlalchemy.orm import declarative_base, sessionmaker, Session
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# Use the provided Supabase connection string
+# Usually it requires the 'postgres' user
+DATABASE_URL = os.environ.get("DATABASE_URL", "postgresql://postgres:Ammapappais1@db.alvokjnbpptkdgomgpws.supabase.co:5432/postgres")
+
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
+
+# Models
+class Animal(Base):
+    __tablename__ = "animals"
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True)
+    type = Column(String)
+    status = Column(String)
+    description = Column(Text)
+
+class Impact(Base):
+    __tablename__ = "impact_stats"
+    id = Column(Integer, primary_key=True, index=True)
+    animals_helped = Column(Integer, default=0)
+    rescue_operations = Column(Integer, default=0)
+    medical_treatments = Column(Integer, default=0)
+    successful_recoveries = Column(Integer, default=0)
+
+# Create tables if they don't exist
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="RescueSurgeon API",
@@ -12,67 +41,46 @@ app = FastAPI(
     version="1.0.0",
 )
 
-# Allow CORS for the frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify frontend URLs
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Supabase Initialization
-# Make sure to set these in a .env file
-SUPABASE_URL = os.environ.get("SUPABASE_URL", "https://your-project-url.supabase.co")
-SUPABASE_KEY = os.environ.get("SUPABASE_KEY", "your-supabase-anon-key")
-
-def get_supabase() -> Client:
-    return create_client(SUPABASE_URL, SUPABASE_KEY)
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the RescueSurgeon API (Powered by Supabase)"}
+    return {"message": "Welcome to the RescueSurgeon API (Powered by Supabase PostgreSQL)"}
 
 @app.get("/api/animals")
-def get_animals():
-    try:
-        supabase: Client = get_supabase()
-        # In a real app, you would query like this:
-        # response = supabase.table("animals").select("*").execute()
-        # return response.data
-        
-        # Returning mock data until the table is created
+def get_animals(db: Session = Depends(get_db)):
+    animals = db.query(Animal).all()
+    if not animals:
+        # Return mock data if DB is empty
         return [
-            {
-                "id": 1,
-                "name": "Bruno",
-                "type": "dogs",
-                "status": "Recovering",
-                "description": "Rescued from an accident, Bruno is showing incredible spirit."
-            },
-            {
-                "id": 2,
-                "name": "Luna",
-                "type": "cats",
-                "status": "Recently Rescued",
-                "description": "Found abandoned, Luna is receiving urgent neonatal care."
-            }
+            {"id": 1, "name": "Bruno", "type": "dogs", "status": "Recovering", "description": "Rescued from an accident, Bruno is showing incredible spirit."},
+            {"id": 2, "name": "Luna", "type": "cats", "status": "Recently Rescued", "description": "Found abandoned, Luna is receiving urgent neonatal care."}
         ]
-    except Exception as e:
-        return {"error": str(e)}
+    return animals
 
 @app.get("/api/impact")
-def get_impact():
-    try:
-        supabase: Client = get_supabase()
-        # Example query to aggregate data:
-        # animals_helped = supabase.table("rescues").select("id", count="exact").execute().count
-        
+def get_impact(db: Session = Depends(get_db)):
+    impact = db.query(Impact).first()
+    if not impact:
+        # Return mock data if DB is empty
         return {
             "animals_helped": 1250,
             "rescue_operations": 650,
             "medical_treatments": 420,
             "successful_recoveries": 180
         }
-    except Exception as e:
-        return {"error": str(e)}
+    return impact
+
