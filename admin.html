@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RescueSurgeon | Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { padding: 4rem; background: #f4f7f6; }
+        .admin-header { margin-bottom: 2rem; }
+        .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .card { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+    <div class="admin-header">
+        <h1>Admin Dashboard</h1>
+        <p>Manage Animals and Consultations.</p>
+        <a href="index.html" class="btn btn-outline">Back to Website</a>
+    </div>
+    
+    <div class="dashboard-grid">
+        <div class="card">
+            <h3>Add New Animal</h3>
+            <form class="styled-form" style="padding: 1rem; box-shadow: none;">
+                <input type="text" placeholder="Animal Name" style="margin-bottom:1rem;"><br>
+                <select style="margin-bottom:1rem;">
+                    <option>Recovering</option>
+                    <option>Adopted</option>
+                </select><br>
+                <button class="btn btn-primary" type="button">Add to Database</button>
+            </form>
+        </div>
+        <div class="card">
+            <h3>Recent Bookings</h3>
+            <p>No new bookings yet.</p>
+        </div>
+    </div>
+</body>
+</html>
