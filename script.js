@@ -81,27 +81,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     const statusClass = animal.status.toLowerCase().includes('recover') ? 'recovering' : 'rescued';
 
                     container.innerHTML += `
-                        <div class="animal-card" data-category="${animal.type}" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.5">
+                        <div class="animal-card" data-category="${animal.type}">
                             <div class="animal-img placeholder-img"><i class="fa-solid ${icon}"></i></div>
                             <div class="animal-info">
-                                <h3 style="transform: translateZ(30px);">${animal.name}</h3>
-                                <span class="status ${statusClass}" style="transform: translateZ(40px);">${animal.status}</span>
-                                <p style="transform: translateZ(20px);">${animal.description}</p>
-                                <a href="#" class="btn btn-outline btn-small" style="transform: translateZ(50px);">View Story</a>
+                                <h3>${animal.name}</h3>
+                                <span class="status ${statusClass}">${animal.status}</span>
+                                <p>${animal.description}</p>
+                                <a href="#" class="btn btn-outline btn-small">View Story</a>
                             </div>
                         </div>
                     `;
                 });
-
-                // Initialize VanillaTilt for the newly added cards
-                if (typeof VanillaTilt !== 'undefined') {
-                    VanillaTilt.init(document.querySelectorAll(".animal-card"), {
-                        max: 15,
-                        speed: 400,
-                        glare: true,
-                        "max-glare": 0.5,
-                    });
-                }
             }
         } catch (error) {
             console.error('Error fetching animals:', error);

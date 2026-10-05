@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
 
@@ -42,17 +41,34 @@
         </div>
     </nav>
 
+    <!-- Scrolling Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            <span><i class="fa-solid fa-paw"></i> Every life matters</span>
+            <span><i class="fa-solid fa-heart"></i> Over 500 animals saved</span>
+            <span><i class="fa-solid fa-house-chimney"></i> Adopt, Don't Shop</span>
+            <span><i class="fa-solid fa-stethoscope"></i> Free medical care for strays</span>
+            <!-- Duplicated for seamless loop -->
+            <span><i class="fa-solid fa-paw"></i> Every life matters</span>
+            <span><i class="fa-solid fa-heart"></i> Over 500 animals saved</span>
+            <span><i class="fa-solid fa-house-chimney"></i> Adopt, Don't Shop</span>
+            <span><i class="fa-solid fa-stethoscope"></i> Free medical care for strays</span>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <span class="hero-subtitle">RESCUESURGEON</span>
-            <h1 class="hero-title">Rescuing Lives.<br>Restoring Hope.</h1>
-            <p class="hero-desc">We rescue, rehabilitate and care for orphaned, injured and vulnerable animals.</p>
+            <span class="hero-subtitle">RescueSurgeon Mission</span>
+            <h1 class="hero-title">Rescuing Lives.<br>Restoring <span>Hope.</span></h1>
+            <p class="hero-desc">We rescue, rehabilitate and care for orphaned, injured and vulnerable animals. Join us in making a difference today.</p>
             <div class="hero-cta">
-                <a href="#work" class="btn btn-primary btn-large">Our Work</a>
-                <a href="#consultation" class="btn btn-glass btn-large">Book a Consultation</a>
+                <a href="#work" class="btn btn-primary">Our Work</a>
+                <a href="#consultation" class="btn btn-outline">Book a Consultation</a>
             </div>
+        </div>
+        <div class="hero-image-placeholder">
+            <i class="fa-solid fa-dog"></i>
         </div>
     </section>
 
