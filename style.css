@@ -454,3 +454,126 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* --- Founder Section --- */
+.founder-section {
+    padding: 6rem 2rem;
+    background-color: var(--bg-main);
+}
+.founder-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+.founder-image .image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background-color: #ffdcb3;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    color: var(--accent-color);
+}
+.founder-content h2 { font-size: 3rem; margin-bottom: 0.5rem; }
+.founder-content h4 { color: var(--primary-color); font-size: 1.2rem; margin-bottom: 1.5rem; }
+.founder-content p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; }
+
+/* --- Work Section --- */
+.work-section {
+    padding: 6rem 2rem;
+    background-color: var(--bg-white);
+}
+.work-categories {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+.work-card {
+    background: var(--bg-main);
+    padding: 3rem 2rem;
+    border-radius: var(--border-radius-lg);
+    text-align: center;
+    transition: var(--transition);
+}
+.work-card:hover { transform: translateY(-10px); background: #f0edff; }
+.work-icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 1.5rem; }
+.work-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+.work-card p { color: var(--text-muted); }
+
+/* --- Gallery Section --- */
+.gallery-section {
+    padding: 6rem 2rem;
+    background-color: var(--bg-main);
+}
+.masonry-gallery {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 250px;
+    gap: 1.5rem;
+}
+.gallery-item {
+    background-color: #e2e8f0;
+    border-radius: var(--border-radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+.gallery-item.large { grid-column: span 2; grid-row: span 2; background-color: #ffdcb3; color: var(--accent-color); }
+.gallery-item.wide { grid-column: span 2; background-color: #f0edff; color: var(--primary-color); }
+
+/* --- Footer Extras --- */
+.social-links { display: flex; gap: 1rem; margin-top: 2rem; }
+.social-links a {
+    color: var(--text-light);
+    background: rgba(255,255,255,0.1);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+.social-links a:hover { background: var(--primary-color); transform: translateY(-3px); }
+.footer-links h3, .footer-contact h3 { margin-bottom: 1.5rem; font-size: 1.3rem; }
+.footer-links a { display: block; color: #a3a3a3; text-decoration: none; margin-bottom: 1rem; transition: var(--transition); }
+.footer-links a:hover { color: var(--accent-color); padding-left: 5px; }
+.footer-contact p { color: #a3a3a3; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
+.mt-3 { margin-top: 2rem; }
+
+/* Fix Top Stats Section layout */
+.stats-section:not(:last-of-type) {
+    background-color: var(--bg-white);
+    padding: 4rem 2rem;
+    color: var(--text-main);
+}
+.stats-section:not(:last-of-type) .stat-box h3, .stats-section:not(:last-of-type) .stat-box span {
+    color: var(--primary-color);
+}
+.stats-section:not(:last-of-type) .stat-box p {
+    color: var(--text-muted);
+}
+
+@media (max-width: 992px) {
+    .founder-container { grid-template-columns: 1fr; }
+    .work-categories { grid-template-columns: repeat(2, 1fr); }
+    .masonry-gallery { grid-template-columns: repeat(2, 1fr); }
+    .footer-content { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+    .work-categories { grid-template-columns: 1fr; }
+    .masonry-gallery { grid-template-columns: 1fr; }
+    .gallery-item.large, .gallery-item.wide { grid-column: span 1; grid-row: span 1; }
+    .footer-content { grid-template-columns: 1fr; }
+}
